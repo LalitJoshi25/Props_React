@@ -1,15 +1,28 @@
-import logo from './logo.svg';
+import movie from './movie.json';
 import './App.css';
-import { useState } from 'react';
-import Header,{Footer} from './Header/Header';
-
+import Header from './components/Header';
+import Cart from './components/Cart';
 
 function App() {
   return (
-    <>
-      <Header name="Lalit" />
-      <Footer fend = "Footer End"/>
-    </>
+    <div className='body'>
+        <Header />
+        <div className='Cart_css'>
+        {
+          movie.map((element,index)=>{
+          return(
+            <Cart key = {index}
+                  img={element.Poster}
+                  title = {element.Title}
+                  year = {element.Year}
+            />
+          )
+          })
+        }
+        
+        </div>
+
+    </div>
   );
 }
 
